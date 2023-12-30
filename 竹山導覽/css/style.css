@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
+
+*{
+    /* 全域使用ZCOOL QingKe HuangYou字體 */
+    font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+    /* 內距0 */
+    padding: 0;
+    /* 外距0 */
+    margin: 0;
+    /* 寬高設定作用在邊框外緣的範圍內 */
+    box-sizing: border-box;
+    /* 取消文字底線 */
+    text-decoration: none;
+    /* 英文字母開頭轉為大寫 */
+    text-transform: capitalize;
+}
+html{
+    /* 自動隱藏超出的文字或圖片 */
+    overflow-x: hidden;
+    font-size: 62.5%;
+}
+body{
+    background:#333 ;
+}
+header{
+    /* 寬度為96% */
+    width:96%;
+    /* 背景顏色#fff */
+    background: #fff;
+    /* flex排版 */
+    display: flex;
+    /* 垂直置中 */
+    align-items: center;
+    /* 水平分於兩側 */
+    justify-content: space-between;
+    /* 將header定位 */
+    position: fixed;
+    /* 距離上面1.5rem */
+    top:1.5rem;
+    /* 距離左邊50% */
+    left:50%;
+    /* X軸往左移50%，達到置中效果 */
+    transform: translateX(-50%);
+    /* 圓角效果 */
+    border-radius: .5rem;
+    /* 陰影效果 */
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+    /* 使header在下層 */
+    z-index: 1000;
+}
+
+header .logo{
+    /* logo文字顏色 */
+    color: #333;
+    /* 字體大小 */
+    font-size: 3rem;
+}
+header .logo span{
+    /* 顏色 */
+    color: #178436;
+}
+
+header .navbar ul{
+    /* 取消列表樣式 */
+    list-style: none;
+    /* flex排版 */
+    display: flex;
+    /* 垂直置中 */
+    align-items: center;
+    /* 水平分於兩側 */
+    justify-content: space-between;
+    /* 內距0 */
+    padding: 0;
+    /* 外距0 */
+    margin: 0;
+}
+
+header .navbar ul li{
+    /* 每個li的上下外距為0,左右外距為1rem */
+    margin: 0 1rem;
+}
+
+header .navbar ul li a{
+    /* navbar中的a字體大小 */
+    font-size: 2rem;
+    /* 字體顏色 */
+    color:#333;
+    /* hover字體變色時間與效果 */
+    transition: .2s linear;
+}
+
+header .navbar ul li .active,
+header .navbar ul li a:hover{
+    /* 字體變色 */
+    color: #178436;
+}
+
+header .fa-bars{
+    /* navbar圖案大小 */
+    font-size: 3rem;
+    /* navbar顏色 */
+    color: #178436;
+    /* 取消顯示 */
+    display: none;
+}
+
+/* RWD */
+/* 螢幕小於768px時 */
+@media (max-width:768px){
+    html{
+        /* 字體大小 */
+        font-size: 55%;
+    }
+    /* 顯示navbar icon */
+    header .fa-bars{
+        display: block;
+    }
+    
+    header .navbar{
+        /* 將navbar定位 */
+        position: fixed;
+        /* 距離上面-100rem */
+        top: -100rem;
+        /* 距離左邊50% */
+        left: 50%;
+        /* X軸往左移50%，達到置中效果 */
+        transform: translateX(-50%);
+        /* 寬度設定為100% */
+        width: 100%;
+        background-color: #fff;
+        /* 圓角效果 */
+        border-radius: .5rem;
+        /* 陰影效果 */
+        box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+        /* 使header在下層 */
+        z-index: 1000;
+        /* 載入時間與效果 */
+        transition: .2s linear;
+        /* 在螢幕小於768px時，取消顯示navbar字樣 */
+        opacity: 0;
+    }
+
+    header .navbar ul{
+        /* 由上而下排列 */
+        flex-flow: column;
+    }
+
+    header .navbar ul li{
+        /* 每個li的上下外距為1rem,左右外距為0 */
+        margin: 1rem 0;
+        /* 寬度為100% */
+        width: 100%;
+        /* 字體置中 */
+        text-align: center;
+    }
+
+    header .navbar ul li a{
+        /* 設定為顯示 */
+        display: block;
+        /* 字體大小 */
+        font-size: 3rem;
+    }
+    header .nav-toggle{
+        top: 5.5rem;
+        opacity: 1;
+    }
+}
